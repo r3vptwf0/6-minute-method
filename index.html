@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 6-Minute Method – Free Starter Guide</title>
+
+    <!-- Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --bg-soft: #f6f8fb;
+            --text-main: #1a1a1a;
+            --text-soft: #4a5568;
+            --accent: #ff8c00;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: #ffffff;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px 40px;
+        }
+
+        /* ================= COVER ================= */
+
+        .cover {
+            min-height: 80vh;
+            margin: 0 -16px 40px;
+            padding: 40px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+        }
+
+        .cover::before,
+        .cover::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.13);
+            filter: blur(2px);
+        }
+
+        .cover::before {
+            width: 420px;
+            height: 420px;
+            top: -160px;
+            right: -160px;
+        }
+
+        .cover::after {
+            width: 340px;
+            height: 340px;
+            bottom: -140px;
+            left: -140px;
+        }
+
+        .cover-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .cover .subtitle {
+            font-size: clamp(16px, 3vw, 20px);
+            font-weight: 300;
+            opacity: 0.96;
+            margin-bottom: 24px;
+        }
+
+        .cover .highlight {
+            font-size: 15px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.16);
+            padding: 14px 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 26px;
+        }
+
+        .cover .mini-list {
+            font-size: 14px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .cover .mini-list span {
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1a1a1a;
+            background: #fefcbf;
+            background: linear-gradient(135deg, #ffe082 0%, #ffd54f 50%, #ffca28 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.03);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
+        }
+
+        .cta-primary small {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--text-soft);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-soft);
+            margin-bottom: 14px;
+        }
+
+        /* BENEFITS / WHAT YOU GET */
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .card-soft {
+            background: var(--bg-soft);
+            border-radius: 14px;
+            padding: 20px 22px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-soft h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .benefits-list li::before {
+            content: "•";
+            position: absolute;
+            left: 6px;
+            top: 0;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .mini-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: #718096;
+            margin-bottom: 6px;
+        }
+
+        /* POCKET GUIDE AREA */
+
+        .guide-wrapper {
+            background: #fff;
+            border-radius: 18px;
+            padding: 24px 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+        }
+
+        .guide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .guide-sub {
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 18px;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            border-radius: 14px;
+            padding: 18px 18px 16px;
+            margin-bottom: 14px;
+        }
+
+        .step-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .step-card ul {
+            margin-left: 16px;
+        }
+
+        .step-card li {
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .checklist {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-top: 10px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .checklist-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+
+        .checklist ul {
+            margin-left: 14px;
+        }
+
+        .checklist li {
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #4a5568;
+        }
+
+        /* CTA FINAL */
+
+        .cta-section {
+            margin-top: 24px;
+            padding: 22px 20px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #fff7e6 0%, #fff3c4 50%, #ffe0b2 100%);
+            border: 1px solid rgba(255, 167, 38, 0.6);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #c05621;
+        }
+
+        .cta-section p {
+            color: #7b341e;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .cta-points {
+            list-style: none;
+            margin: 8px 0 12px;
+        }
+
+        .cta-points li {
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #7b341e;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .cta-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #c05621;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .cta-button-row {
+            margin-top: 8px;
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1a1a1a;
+            background: #ffe082;
+            background: linear-gradient(135deg, #ffd54f 0%, #ffca28 50%, #ffb300 100%);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .cta-secondary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+        }
+
+        .cta-note {
+            font-size: 12px;
+            color: #744210;
+            margin-top: 6px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 28px;
+        }
+
+        footer span {
+            color: #cbd5e1;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+            .cover {
+                margin: 0 -16px 32px;
+                padding: 32px 16px;
+                min-height: 70vh;
+            }
+
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cover">
+    <div class="cover-inner">
+        <div class="badge">FREE STARTER GUIDE • 6 MINUTES A DAY</div>
+        <h1>The 6-Minute Method</h1>
+        <p class="subtitle">A simple, science-based ritual to reprogram your mind and reset your day in just 6 minutes.</p>
+
+        <div class="highlight">
+            ✨ Get the exact 3-step morning protocol (in 1 page) that thousands of people use to start their day with clarity, energy, and focus.
+        </div>
+
+        <p class="mini-list">
+            <span>⏱️ Only 6 minutes</span> •
+            <span>🧠 Neuroscience-based</span> •
+            <span>📅 Built for 21 days of transformation</span>
+        </p>
+
+        <a class="cta-primary" href="#guide">
+            Get the free 6-minute protocol
+            <span>→</span>
+        </a>
+        <div style="margin-top: 8px;">
+            <small>Then discover the full 21-day system inside the complete ebook.</small>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+
+    <!-- WHAT YOU GET -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">INSIDE THIS FREE GUIDE</div>
+            <h2 class="section-title">What you’ll get in a few minutes</h2>
+            <p class="section-subtitle">
+                This is not a motivational quote pack. It’s a condensed, practical version of the 6-Minute Method — designed to give you a real taste of the full 21-day transformation.
+            </p>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-soft">
+                    <span class="mini-tag">WHY THIS WORKS</span>
+                    <h3>Built on how your brain actually works</h3>
+                    <p>
+                        Your brain is most malleable in the first minutes after waking up — it’s called the “neural plasticity window”.
+                        The 6-Minute Method uses this window to reset your emotional state, your focus, and your intentions for the day.
+                    </p>
+                    <ul class="benefits-list">
+                        <li>Use the first 6 minutes after waking in a deliberate, powerful way.</li>
+                        <li>Stop starting your day with anxiety, social media, and chaos.</li>
+                        <li>Create a repeatable ritual that anchors you in clarity and direction.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="card-soft">
+                    <span class="mini-tag">IN THIS LEAD MAGNET</span>
+                    <h3>Your 1-page “Morning Reset”</h3>
+                    <ul class="benefits-list">
+                        <li>The full 3-step 6-minute ritual (2 + 2 + 2 minutes).</li>
+                        <li>Exact breathing, activation, and focus prompts to use tomorrow morning.</li>
+                        <li>A mini checklist so you always know if you did it right.</li>
+                        <li>A clear path to deepen this into a 21-day transformation with the full ebook.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POCKET GUIDE / PROTOCOL -->
+    <section id="guide">
+        <div class="section-header">
+            <div class="section-label">THE 6-MINUTE PROTOCOL</div>
+            <h2 class="section-title">The method in one page</h2>
+            <p class="section-subtitle">
+                Tomorrow morning, before you touch your phone, try this 6-minute sequence.  
+                It’s a direct extraction from the complete 6-Minute Method ebook.
+            </p>
+        </div>
+
+        <div class="guide-wrapper">
+            <div class="guide-header">
+                <h3 class="guide-title">STEP 1 · Activate your brain (2 minutes)</h3>
+                <p class="guide-sub">Wake up your nervous system, increase oxygen, and switch your brain into “on” mode.</p>
+            </div>
+
+            <div class="step-card">
+                <h3>⏱️ In these 2 minutes:</h3>
+                <ul>
+                    <li><strong>30s – 4-7-8 breathing:</strong> Inhale for 4, hold for 7, exhale for 8 (3 rounds).</li>
+                    <li><strong>30s – Activation declaration:</strong> Say out loud (or mentally):
+                        “I wake up with energy, clarity and purpose. My mind is sharp and today I create an extraordinary day.”
+                    </li>
+                    <li><strong>30s – Body activation:</strong> Stand up, stretch your arms, take 5 deep breaths, smile, clap 3 times.</li>
+                    <li><strong>30s – Power gesture:</strong> Choose a gesture (touch wrist, fist on chest, finger snap) to anchor this state.</li>
+                </ul>
+            </div>
+
+            <div class="guide-header" style="margin-top: 12px;">
+                <h3 class="guide-title">STEP 2 · Emotional reprogramming (2 minutes)</h3>
+                <p class="guide-sub">Interrupt your default anxiety and install new emotional patterns on purpose.</p>
+            </div>
+
+            <div class="step-card">
+                <h3>🧠 In these 2 minutes:</h3>
+                <ul>
+                    <li><strong>45s – Replace the first negative thought:</strong>  
+                        Notice the first anxious or pessimistic thought and replace it 3 times with a conscious one  
+                        (e.g. “Today I have the chance to grow and prove my strength.”).
+                    </li>
+                    <li><strong>45s – Emotional anchor:</strong>  
+                        Close your eyes and remember a moment of victory or pride. Feel it fully, then do your power gesture.
+                    </li>
+                    <li><strong>30s – Anti-anxiety phrases (hand on heart):</strong>  
+                        “I am safe now. I choose my responses. I trust the process. I release what I can’t control. I choose inner peace.”
+                    </li>
+                </ul>
+            </div>
+
+            <div class="guide-header" style="margin-top: 12px;">
+                <h3 class="guide-title">STEP 3 · Daily direction (2 minutes)</h3>
+                <p class="guide-sub">Turn that emotional clarity into concrete focus and movement.</p>
+            </div>
+
+            <div class="step-card">
+                <h3>🎯 In these 2 minutes:</h3>
+                <ul>
+                    <li><strong>30s – Power question:</strong>  
+                        Ask: “What can I do today that will make me proud of myself when the day ends?”  
+                        Let one honest answer appear.
+                    </li>
+                    <li><strong>60s – Rule of 3 priorities:</strong>  
+                        Write down only 3 things:  
+                        1) one non-negotiable task · 2) one growth action · 3) one well-being action.
+                    </li>
+                    <li><strong>30s – Word of the day + declaration:</strong>  
+                        Choose a word (Focus, Courage, Peace, Energy…) and repeat it 3 times.  
+                        Then say: “I am ready. I am focused. This day is mine.” + your power gesture.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-title">Quick morning checklist</div>
+                <ul>
+                    <li>Did I do the 3 steps (activation, reprogramming, direction)?</li>
+                    <li>Did I avoid checking my phone before the 6 minutes?</li>
+                    <li>Did I choose my 3 priorities and my word of the day?</li>
+                    <li>Did I finish with my power gesture?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FULL EBOOK -->
+    <section>
+        <div class="cta-section">
+            <h2>Want the full 21-day transformation?</h2>
+            <p>
+                This free guide gives you the core protocol.  
+                The complete ebook <strong>“The 6-Minute Method – Express Reprogramming to Change Your Life in 21 Days”</strong> goes much deeper and gives you:
+            </p>
+            <ul class="cta-points">
+                <li>The full science behind why 6 minutes are enough to rewire your brain.</li>
+                <li>Detailed explanations of each step, with examples and “do this, not that”.</li>
+                <li>A complete 21-day challenge with tracking table and reflection prompts.</li>
+                <li>12 powerful reprogramming phrases for money, confidence, energy, and focus.</li>
+                <li>Real stories, psychology, and advanced techniques to maintain the habit.</li>
+            </ul>
+
+            <div class="cta-button-row">
+                <a
+                    class="cta-secondary"
+                    href="https://revptwizzle.gumroad.com/l/THE6MIN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Get the full 6-Minute Method ebook →
+                </a>
+                <div class="cta-note">
+                    Turn this 1-page ritual into a complete 21-day mental reset.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><span>✨</span> Practice the 6-minute ritual tomorrow morning.  
+           If you feel the difference, imagine what 21 days will do.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
